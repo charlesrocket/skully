@@ -2,12 +2,10 @@
 #define SKULLY_H
 
 #include <Watchy.h>
-#include "fonts/LcdSolid32pt7b.h"
-#include "fonts/LcdSolid23pt7b.h"
-#include "fonts/LcdSolid15pt7b.h"
-#include "fonts/LcdSolid13pt7b.h"
-#include "fonts/LcdSolid11pt7b.h"
+#include "fonts/LcdSolid27pt7b.h"
+#include "fonts/LcdSolid10pt7b.h"
 #include "fonts/LcdSolid9pt7b.h"
+#include "fonts/LcdSolid8pt7b.h"
 #include "skull.h"
 
 class Skully : public Watchy{
