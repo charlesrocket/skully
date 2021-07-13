@@ -9,6 +9,7 @@ void Skully::drawWatchFace(){
     drawWDay();
     drawDate();
     drawSteps();
+    drawTemperature();
     drawBattery();
     for(uint8_t i=0; i<3; i++){
         display.display(true);
@@ -64,6 +65,18 @@ void Skully::drawSteps(){
         sensor.resetStepCounter();
     }
     display.println(String(stepStr));
+}
+
+void Skully::drawTemperature(){
+    display.setTextColor(GxEPD_WHITE);
+    display.setFont(&LcdSolid8pt7b);
+    display.setCursor(6, 179);
+    uint8_t temperatureRTC = RTC.temperature() / 4;
+    if(temperatureRTC < 10){
+    display.print("0");
+    }
+    display.print(temperatureRTC);
+    display.print("c");
 }
 
 void Skully::drawBattery(){

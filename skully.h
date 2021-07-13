@@ -16,6 +16,7 @@ class Skully : public Watchy{
         void drawWDay();
         void drawDate();
         void drawSteps();
+        void drawTemperature();
         void drawBattery();
 };
 
