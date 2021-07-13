@@ -4,7 +4,6 @@ Skully::Skully(){}
 
 void Skully::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
-    display.setTextColor(GxEPD_WHITE);
     display.drawBitmap(0, 0, skull, 200, 200, GxEPD_WHITE);
     drawTime();
     drawWDay();
@@ -17,13 +16,14 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    display.setFont(&LcdSolid32pt7b);
-    display.setCursor(113, 73);
+    display.setTextColor(GxEPD_WHITE);
+    display.setFont(&LcdSolid27pt7b);
+    display.setCursor(128, 149);
     if(currentTime.Hour < 10){
         display.print("0");
     }
     display.print(currentTime.Hour);
-    display.setCursor(113, 133);
+    display.setCursor(128, 195);
     if(currentTime.Minute < 10){
         display.print("0");
     }
@@ -31,27 +31,30 @@ void Skully::drawTime(){
 }
 
 void Skully::drawWDay(){
-    display.setFont(&LcdSolid13pt7b);
-    display.setCursor(5, 170);
+    display.setTextColor(GxEPD_WHITE);
+    display.setFont(&LcdSolid9pt7b);
+    display.setCursor(158, 104);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.println(String(dayOfWeek));
 }
 
 void Skully::drawDate(){
-    display.setFont(&LcdSolid13pt7b);
-    display.setCursor(5, 194);
-    String monthStr = monthShortStr(currentTime.Month);
+    display.setTextColor(GxEPD_WHITE);
+    display.setFont(&LcdSolid8pt7b);
+    display.setCursor(6, 193);
+    String monthStr = String(currentTime.Month);
     String dayStr = String(currentTime.Day);
+    monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
     dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
-    String dateStr = monthStr + dayStr;
-    dateStr.toUpperCase();
-    display.print(dateStr);
+    String dateStr = dayStr + "/" + monthStr;
+    display.println(String(dateStr));
 }
 
 void Skully::drawSteps(){
-    display.setFont(&LcdSolid9pt7b);
-    display.setCursor(63, 167);
+    display.setTextColor(GxEPD_BLACK);
+    display.setFont(&LcdSolid10pt7b);
+    display.setCursor(41, 50);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
@@ -64,10 +67,11 @@ void Skully::drawSteps(){
 }
 
 void Skully::drawBattery(){
-    display.setFont(&LcdSolid13pt7b);
-    display.setCursor(181, 194);
+    display.setTextColor(GxEPD_WHITE);
+    display.setFont(&LcdSolid9pt7b);
+    display.setCursor(188, 16);
     display.print(">");
-    display.setCursor(136, 194);
+    display.setCursor(157, 16);
     float BATTV = getBatteryVoltage();
     if(BATTV > 4.1){
         display.print("***");
