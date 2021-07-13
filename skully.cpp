@@ -34,7 +34,7 @@ void Skully::drawTime(){
 void Skully::drawWDay(){
     display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid9pt7b);
-    display.setCursor(158, 104);
+    display.setCursor(158, 103);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.println(String(dayOfWeek));
