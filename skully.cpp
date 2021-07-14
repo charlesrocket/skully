@@ -20,7 +20,7 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&LcdSolid27pt7b);
-    display.setCursor(128, 151);
+    display.setCursor(128, 152);
     if(currentTime.Hour < 10){
         display.print("0");
     }
@@ -34,7 +34,7 @@ void Skully::drawTime(){
 
 void Skully::drawWDay(){
     display.setFont(&LcdSolid9pt7b);
-    display.setCursor(159, 89);
+    display.setCursor(159, 91);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.print(String(dayOfWeek));
@@ -42,7 +42,7 @@ void Skully::drawWDay(){
 
 void Skully::drawDate(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(6, 193);
+    display.setCursor(4, 195);
     String monthStr = String(currentTime.Month);
     String dayStr = String(currentTime.Day);
     monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
@@ -53,7 +53,7 @@ void Skully::drawDate(){
 
 void Skully::drawSteps(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(141, 104);
+    display.setCursor(141, 106);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
@@ -67,7 +67,7 @@ void Skully::drawSteps(){
 
 void Skully::drawTemperature(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(6, 179);
+    display.setCursor(4, 181);
     uint8_t temperatureRTC = RTC.temperature() / 4;
     if(temperatureRTC < 10){
     display.print("0");
