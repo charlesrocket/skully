@@ -20,12 +20,12 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&LcdSolid27pt7b);
-    display.setCursor(128, 135);
+    display.setCursor(128, 151);
     if(currentTime.Hour < 10){
         display.print("0");
     }
     display.print(currentTime.Hour);
-    display.setCursor(128, 179);
+    display.setCursor(128, 195);
     if(currentTime.Minute < 10){
         display.print("0");
     }
@@ -53,7 +53,7 @@ void Skully::drawDate(){
 
 void Skully::drawSteps(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(130, 193);
+    display.setCursor(142, 104);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
