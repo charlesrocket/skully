@@ -53,7 +53,7 @@ void Skully::drawDate(){
 
 void Skully::drawSteps(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(142, 104);
+    display.setCursor(141, 104);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
