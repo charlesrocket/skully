@@ -4,6 +4,7 @@ Skully::Skully(){}
 
 void Skully::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
     display.drawBitmap(0, 0, skull, 200, 200, GxEPD_WHITE);
     drawTime();
     drawWDay();
@@ -18,14 +19,13 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid27pt7b);
-    display.setCursor(128, 149);
+    display.setCursor(128, 135);
     if(currentTime.Hour < 10){
         display.print("0");
     }
     display.print(currentTime.Hour);
-    display.setCursor(128, 195);
+    display.setCursor(128, 179);
     if(currentTime.Minute < 10){
         display.print("0");
     }
@@ -33,16 +33,14 @@ void Skully::drawTime(){
 }
 
 void Skully::drawWDay(){
-    display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid9pt7b);
-    display.setCursor(158, 103);
+    display.setCursor(159, 89);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
-    display.println(String(dayOfWeek));
+    display.print(String(dayOfWeek));
 }
 
 void Skully::drawDate(){
-    display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid8pt7b);
     display.setCursor(6, 193);
     String monthStr = String(currentTime.Month);
@@ -50,13 +48,12 @@ void Skully::drawDate(){
     monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
     dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
     String dateStr = dayStr + "/" + monthStr;
-    display.println(String(dateStr));
+    display.print(String(dateStr));
 }
 
 void Skully::drawSteps(){
-    display.setTextColor(GxEPD_BLACK);
-    display.setFont(&LcdSolid10pt7b);
-    display.setCursor(41, 50);
+    display.setFont(&LcdSolid8pt7b);
+    display.setCursor(130, 193);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
@@ -65,11 +62,10 @@ void Skully::drawSteps(){
     if(currentTime.Hour == 23 && currentTime.Minute == 59){
         sensor.resetStepCounter();
     }
-    display.println(String(stepStr));
+    display.print(String(stepStr));
 }
 
 void Skully::drawTemperature(){
-    display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid8pt7b);
     display.setCursor(6, 179);
     uint8_t temperatureRTC = RTC.temperature() / 4;
@@ -83,9 +79,9 @@ void Skully::drawTemperature(){
 void Skully::drawBattery(){
     display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid9pt7b);
-    display.setCursor(188, 16);
+    display.setCursor(187, 17);
     display.print(">");
-    display.setCursor(157, 16);
+    display.setCursor(156, 17);
     float BATTV = getBatteryVoltage();
     if(BATTV > 4.1){
         display.print("***");
