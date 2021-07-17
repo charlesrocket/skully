@@ -1,2 +1,2 @@
 # skully
-![watchy](doc/img.png)
+![watchy](doc/img.jpg)
