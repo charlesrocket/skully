@@ -47,7 +47,7 @@ void Skully::drawDate(){
     String dayStr = String(currentTime.Day);
     monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
     dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
-    String dateStr = dayStr + "/" + monthStr;
+    String dateStr = dayStr + "." + monthStr;
     display.print(String(dateStr));
 }
 
