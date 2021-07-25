@@ -69,11 +69,12 @@ void Skully::drawTemperature(){
     display.setFont(&LcdSolid8pt7b);
     display.setCursor(4, 181);
     uint8_t temperatureRTC = RTC.temperature() / 4;
+    temperatureRTC = temperatureRTC * (9/5) + 32;
     if(temperatureRTC < 10){
     display.print("0");
     }
     display.print(temperatureRTC);
-    display.print("c");
+    display.print("Fh");
 }
 
 void Skully::drawBattery(){
