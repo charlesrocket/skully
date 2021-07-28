@@ -92,10 +92,10 @@ void Skully::drawBattery(){
     display.print(">");
     display.setCursor(156, 17);
     float BATTV = getBatteryVoltage();
-    if(BATTV > 4.1){
+    if(BATTV > 4.10){
         display.print("***");
     }
-    else if(BATTV > 3.85 && BATTV <= 4.1){
+    else if(BATTV > 3.85 && BATTV <= 4.10){
         display.print(" **");
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
