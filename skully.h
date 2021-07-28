@@ -5,7 +5,7 @@
 #include "fonts/LcdSolid27pt7b.h"
 #include "fonts/LcdSolid9pt7b.h"
 #include "fonts/LcdSolid8pt7b.h"
-#include "skull.h"
+#include "pirate.h"
 
 class Skully : public Watchy{
     public:

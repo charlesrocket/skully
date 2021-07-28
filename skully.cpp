@@ -5,7 +5,7 @@ Skully::Skully(){}
 void Skully::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
-    display.drawBitmap(0, 0, skull, 200, 200, GxEPD_WHITE);
+    display.drawBitmap(0, 0, pirate, 200, 200, GxEPD_WHITE);
     drawTime();
     drawWDay();
     drawDate();
