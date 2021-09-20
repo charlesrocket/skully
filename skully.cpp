@@ -20,12 +20,12 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&LcdSolid27pt7b);
-    display.setCursor(131, 155);
+    display.setCursor(130, 155);
     if(currentTime.Hour < 10){
         display.print("0");
     }
     display.print(currentTime.Hour);
-    display.setCursor(131, 198);
+    display.setCursor(130, 198);
     if(currentTime.Minute < 10){
         display.print("0");
     }
@@ -34,7 +34,7 @@ void Skully::drawTime(){
 
 void Skully::drawWDay(){
     display.setFont(&LcdSolid9pt7b);
-    display.setCursor(162, 94);
+    display.setCursor(161, 94);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.print(String(dayOfWeek));
@@ -53,7 +53,7 @@ void Skully::drawDate(){
 
 void Skully::drawSteps(){
     display.setFont(&LcdSolid8pt7b);
-    display.setCursor(144, 109);
+    display.setCursor(143, 109);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
