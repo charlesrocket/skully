@@ -1,7 +1,5 @@
 #include "skully.h"
 
-Skully::Skully(){}
-
 void Skully::drawWatchFace(){
     display.fillScreen(GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
