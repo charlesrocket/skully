@@ -36,6 +36,8 @@ jobs:
           libraries: |
             - name: Watchy
               version: latest
+            - name: NTPClient
+              version: latest
           cli-compile-flags: |
             - --export-binaries
             - --build-property
