@@ -5,6 +5,9 @@
 #include "fonts/LcdSolid27pt7b.h"
 #include "fonts/LcdSolid9pt7b.h"
 #include "fonts/LcdSolid8pt7b.h"
+#include "fonts/GorgeousPixel10pt7b.h"
+#include "fonts/GorgeousPixel9pt7b.h"
+#include "fonts/GorgeousPixel8pt7b.h"
 #include "pirate.h"
 
 class Skully : public Watchy{
