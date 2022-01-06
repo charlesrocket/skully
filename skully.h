@@ -2,9 +2,11 @@
 #define SKULLY_H
 
 #include <Watchy.h>
-#include "fonts/LcdSolid27pt7b.h"
 #include "fonts/LcdSolid9pt7b.h"
 #include "fonts/LcdSolid8pt7b.h"
+#include "fonts/GorgeousPixel27pt7b.h"
+#include "fonts/GorgeousPixel11pt7b.h"
+#include "fonts/GorgeousPixel9pt7b.h"
 #include "pirate.h"
 
 class Skully : public Watchy{
