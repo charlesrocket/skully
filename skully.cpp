@@ -17,13 +17,13 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    display.setFont(&LcdSolid27pt7b);
-    display.setCursor(129, 155);
+    display.setFont(&GorgeousPixel27pt7b);
+    display.setCursor(135, 153);
     if(currentTime.Hour < 10){
         display.print("0");
     }
     display.print(currentTime.Hour);
-    display.setCursor(129, 198);
+    display.setCursor(135, 196);
     if(currentTime.Minute < 10){
         display.print("0");
     }
