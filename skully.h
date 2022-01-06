@@ -5,6 +5,7 @@
 #include "fonts/LcdSolid27pt7b.h"
 #include "fonts/LcdSolid9pt7b.h"
 #include "fonts/LcdSolid8pt7b.h"
+#include "fonts/GorgeousPixel11pt7b.h"
 #include "fonts/GorgeousPixel10pt7b.h"
 #include "fonts/GorgeousPixel9pt7b.h"
 #include "fonts/GorgeousPixel8pt7b.h"
