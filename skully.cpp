@@ -32,7 +32,7 @@ void Skully::drawTime(){
 
 void Skully::drawWDay(){
     display.setFont(&GorgeousPixel11pt7b);
-    display.setCursor(153, 89);
+    display.setCursor(154, 80);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.print(String(dayOfWeek));
@@ -51,7 +51,7 @@ void Skully::drawDate(){
 
 void Skully::drawSteps(){
     display.setFont(&GorgeousPixel9pt7b);
-    display.setCursor(143, 107);
+    display.setCursor(143, 98);
     uint32_t stepCount = sensor.getCounter();
     String stepStr = String(stepCount);
     for(int i=1; i<5; i++){
