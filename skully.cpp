@@ -66,8 +66,8 @@ void Skully::drawSteps(){
 void Skully::drawTemperature(){
     bool Fh;
     Fh = false;
-    display.setFont(&LcdSolid8pt7b);
-    display.setCursor(2, 182);
+    display.setFont(&GorgeousPixel8pt7b);
+    display.setCursor(4, 179);
     uint8_t temperatureRTC = RTC.temperature() / 4;
     if (Fh == true) {
       temperatureRTC = temperatureRTC * (9/5) + 32;
