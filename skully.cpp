@@ -23,17 +23,21 @@ void Skully::drawTime(){
     display.setCursor(137, 152);
     if(currentTime.Hour < 10){
         display.print("0");
+        display.setCursor(165, 152);
         display.print(String(h.substring(0,1)));
     } else {
         display.print(String(h.substring(0,1)));
+        display.setCursor(165, 152);
         display.print(String(h.substring(1,2)));
     }
     display.setCursor(137, 195);
     if(currentTime.Minute < 10){
         display.print("0");
+        display.setCursor(165, 195);
         display.print(String(m.substring(0,1)));
     } else {
         display.print(String(m.substring(0,1)));
+        display.setCursor(165, 195);
         display.print(String(m.substring(1,2)));
     }
 }
