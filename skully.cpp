@@ -17,10 +17,10 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    String h = String(currentTime.Hour);
-    String m = String(currentTime.Minute);
     display.setFont(&GorgeousPixel27pt7b);
     display.setCursor(137, 150);
+    String h = String(currentTime.Hour);
+    String m = String(currentTime.Minute);
     if(currentTime.Hour < 10){
         display.print("0");
         display.setCursor(165, 150);
