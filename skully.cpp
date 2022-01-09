@@ -18,24 +18,50 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&GorgeousPixel27pt7b);
-    display.setCursor(137, 152);
+    display.setCursor(137, 150);
+    String h = String(currentTime.Hour);
+    String m = String(currentTime.Minute);
     if(currentTime.Hour < 10){
         display.print("0");
+        display.setCursor(165, 150);
+        display.print(String(h.substring(0,1)));
+    } else {
+        display.print(String(h.substring(0,1)));
+        display.setCursor(165, 150);
+        display.print(String(h.substring(1,2)));
     }
-    display.print(currentTime.Hour);
-    display.setCursor(137, 195);
+    display.setCursor(137, 193);
     if(currentTime.Minute < 10){
         display.print("0");
+        display.setCursor(165, 193);
+        display.print(String(m.substring(0,1)));
+    } else {
+        display.print(String(m.substring(0,1)));
+        display.setCursor(165, 193);
+        display.print(String(m.substring(1,2)));
     }
-    display.print(currentTime.Minute);
 }
 
 void Skully::drawWDay(){
     display.setFont(&GorgeousPixel11pt7b);
-    display.setCursor(154, 80);
+    display.setCursor(151, 69);
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.print(String(dayOfWeek));
+}
+
+void Skully::drawSteps(){
+    display.setFont(&GorgeousPixel9pt7b);
+    display.setCursor(143, 87);
+    uint32_t stepCount = sensor.getCounter();
+    String stepStr = String(stepCount);
+    for(int i=1; i<5; i++){
+        stepStr = stepCount < pow(10, i) ? "0" + stepStr : stepStr;
+    }
+    if(currentTime.Hour == 23 && currentTime.Minute == 59){
+        sensor.resetStepCounter();
+    }
+    display.print(String(stepStr));
 }
 
 void Skully::drawDate(){
@@ -47,20 +73,6 @@ void Skully::drawDate(){
     dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
     String dateStr = dayStr + "." + monthStr;
     display.print(String(dateStr));
-}
-
-void Skully::drawSteps(){
-    display.setFont(&GorgeousPixel9pt7b);
-    display.setCursor(143, 98);
-    uint32_t stepCount = sensor.getCounter();
-    String stepStr = String(stepCount);
-    for(int i=1; i<5; i++){
-        stepStr = stepCount < pow(10, i) ? "0" + stepStr : stepStr;
-    }
-    if(currentTime.Hour == 23 && currentTime.Minute == 59){
-        sensor.resetStepCounter();
-    }
-    display.print(String(stepStr));
 }
 
 void Skully::drawTemperature(){
