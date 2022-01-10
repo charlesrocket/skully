@@ -53,15 +53,15 @@ void Skully::drawWDay(){
 void Skully::drawSteps(){
     display.setFont(&GorgeousPixel9pt7b);
     display.setCursor(143, 87);
+    if(currentTime.Hour == 23 && currentTime.Minute == 59){
+        sensor.resetStepCounter();
+    }
     uint32_t stepCount = sensor.getCounter();
     char stepStr[32];
     itoa(stepCount, stepStr, 10);
     int stepStrL = strlen(stepStr);
     memset(stepStr, '0', 5);
     itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
-    if(currentTime.Hour == 23 && currentTime.Minute == 59){
-        sensor.resetStepCounter();
-    }
     display.print(stepStr);
 }
 
