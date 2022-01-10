@@ -44,10 +44,12 @@ void Skully::drawTime(){
 
 void Skully::drawWDay(){
     display.setFont(&GorgeousPixel11pt7b);
-    display.setCursor(151, 69);
+    int16_t  x1, y1;
+    uint16_t w, h;
     String dayOfWeek = dayShortStr(currentTime.Wday);
-    dayOfWeek.toUpperCase();
-    display.print(String(dayOfWeek));
+    display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
+    display.setCursor(189 - w, 71);
+    display.println(String(dayOfWeek));
 }
 
 void Skully::drawSteps(){
