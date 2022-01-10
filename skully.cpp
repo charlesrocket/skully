@@ -54,14 +54,15 @@ void Skully::drawSteps(){
     display.setFont(&GorgeousPixel9pt7b);
     display.setCursor(143, 87);
     uint32_t stepCount = sensor.getCounter();
-    String stepStr = String(stepCount);
-    for(int i=1; i<5; i++){
-        stepStr = stepCount < pow(10, i) ? "0" + stepStr : stepStr;
-    }
+    char stepStr[32];
+    itoa(stepCount, stepStr, 10);
+    int stepStrL = strlen(stepStr);
+    memset(stepStr, '0', 5);
+    itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
     if(currentTime.Hour == 23 && currentTime.Minute == 59){
         sensor.resetStepCounter();
     }
-    display.print(String(stepStr));
+    display.print(stepStr);
 }
 
 void Skully::drawDate(){
