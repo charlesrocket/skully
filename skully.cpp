@@ -102,7 +102,6 @@ void Skully::drawTemperature(){
 }
 
 void Skully::drawBattery(){
-    display.setTextColor(GxEPD_WHITE);
     display.setFont(&LcdSolid9pt7b);
     display.setCursor(188, 17);
     display.print(">");
