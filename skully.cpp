@@ -17,27 +17,27 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    display.setFont(&GorgeousPixel28pt7b);
-    display.setCursor(137, 148);
+    display.setFont(&GorgeousPixel29pt7b);
+    display.setCursor(134, 147);
     String h = String(currentTime.Hour);
     String m = String(currentTime.Minute);
     if(currentTime.Hour < 10){
         display.print("0");
-        display.setCursor(166, 148);
+        display.setCursor(164, 147);
         display.print(String(h.substring(0,1)));
     } else {
         display.print(String(h.substring(0,1)));
-        display.setCursor(166, 148);
+        display.setCursor(164, 147);
         display.print(String(h.substring(1,2)));
     }
-    display.setCursor(137, 193);
+    display.setCursor(134, 193);
     if(currentTime.Minute < 10){
         display.print("0");
-        display.setCursor(166, 193);
+        display.setCursor(164, 193);
         display.print(String(m.substring(0,1)));
     } else {
         display.print(String(m.substring(0,1)));
-        display.setCursor(166, 193);
+        display.setCursor(164, 193);
         display.print(String(m.substring(1,2)));
     }
 }
@@ -48,7 +48,8 @@ void Skully::drawWDay(){
     uint16_t w, h;
     String dayOfWeek = dayShortStr(currentTime.Wday);
     display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(193 - w, 69);
+    display.drawRect(188 - w, 46, w + 8, h + 10, GxEPD_WHITE);
+    display.setCursor(191 - w, 66);
     display.println(String(dayOfWeek));
 }
 
@@ -66,7 +67,8 @@ void Skully::drawSteps(){
     memset(stepStr, '0', 5);
     itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
     display.getTextBounds(String(stepStr), 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(193 - w, 87);
+    display.drawRect(188 - w, 71, w + 8, h + 8, GxEPD_WHITE);
+    display.setCursor(191 - w, 87);
     display.println(stepStr);
 }
 
