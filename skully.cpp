@@ -66,7 +66,8 @@ void Skully::drawSteps(){
     memset(stepStr, '0', 5);
     itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
     display.getTextBounds(String(stepStr), 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(193 - w, 87);
+    display.drawRect(188 - w, 71, w + 8, h + 8, GxEPD_WHITE);
+    display.setCursor(191 - w, 87);
     display.println(stepStr);
 }
 
