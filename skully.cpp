@@ -48,7 +48,8 @@ void Skully::drawWDay(){
     uint16_t w, h;
     String dayOfWeek = dayShortStr(currentTime.Wday);
     display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
-    display.setCursor(193 - w, 69);
+    display.drawRect(188 - w, 46, w + 8, h + 10, GxEPD_WHITE);
+    display.setCursor(191 - w, 66);
     display.println(String(dayOfWeek));
 }
 
