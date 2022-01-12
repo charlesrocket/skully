@@ -39,21 +39,21 @@ void Skully::drawTime(){
     display.setCursor(144 - wh1/2, 145);
     if(currentTime.Hour < 10){
         display.print("0");
-        display.setCursor(174 - wh1/2, 145);
+        display.setCursor(176 - wh1/2, 145);
         display.print(String(h1));
     } else {
         display.print(String(h1));
-        display.setCursor(174 - wh2/2, 145);
+        display.setCursor(176 - wh2/2, 145);
         display.print(String(h2));
     }
     display.setCursor(144 - wm1/2, 193);
     if(currentTime.Minute < 10){
         display.print("0");
-        display.setCursor(174 - wm1/2, 193);
+        display.setCursor(176 - wm1/2, 193);
         display.print(String(m1));
     } else {
         display.print(String(m1));
-        display.setCursor(174 - wm2/2, 193);
+        display.setCursor(176 - wm2/2, 193);
         display.print(String(m2));
     }
 }
