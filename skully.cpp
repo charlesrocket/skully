@@ -18,27 +18,43 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&GorgeousPixel30pt7b);
-    display.setCursor(132, 146);
+    int16_t  xh1, yh1;
+    uint16_t wh1, hh1;
+    int16_t  xh2, yh2;
+    uint16_t wh2, hh2;
+    int16_t  xm1, ym1;
+    uint16_t wm1, hm1;
+    int16_t  xm2, ym2;
+    uint16_t wm2, hm2;
     String h = String(currentTime.Hour);
     String m = String(currentTime.Minute);
+    String h1 = String(h.substring(0,1));
+    String h2 = String(h.substring(1,2));
+    String m1 = String(m.substring(0,1));
+    String m2 = String(m.substring(1,2));
+    display.getTextBounds(String(h1), 0, 0, &xh1, &yh1, &wh1, &hh1);
+    display.getTextBounds(String(h2), 0, 0, &xh2, &yh2, &wh2, &hh2);
+    display.getTextBounds(String(m1), 0, 0, &xm1, &ym1, &wm1, &hm1);
+    display.getTextBounds(String(m2), 0, 0, &xm2, &ym2, &wm2, &hm2);
+    display.setCursor(144 - wh1/2, 145);
     if(currentTime.Hour < 10){
         display.print("0");
-        display.setCursor(162, 146);
-        display.print(String(h.substring(0,1)));
+        display.setCursor(174 - wh1/2, 145);
+        display.print(String(h1));
     } else {
-        display.print(String(h.substring(0,1)));
-        display.setCursor(162, 146);
-        display.print(String(h.substring(1,2)));
+        display.print(String(h1));
+        display.setCursor(174 - wh2/2, 145);
+        display.print(String(h2));
     }
-    display.setCursor(132, 193);
+    display.setCursor(144 - wm1/2, 193);
     if(currentTime.Minute < 10){
         display.print("0");
-        display.setCursor(162, 193);
-        display.print(String(m.substring(0,1)));
+        display.setCursor(174 - wm1/2, 193);
+        display.print(String(m1));
     } else {
-        display.print(String(m.substring(0,1)));
-        display.setCursor(162, 193);
-        display.print(String(m.substring(1,2)));
+        display.print(String(m1));
+        display.setCursor(174 - wm2/2, 193);
+        display.print(String(m2));
     }
 }
 
