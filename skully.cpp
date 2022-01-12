@@ -119,17 +119,17 @@ void Skully::drawTemperature(){
 
 void Skully::drawBattery(){
     float BATTV = getBatteryVoltage();
-    display.fillRect(162, 5, 34, 12, GxEPD_WHITE);
-    display.fillRect(159, 9, 3, 4, GxEPD_WHITE);
-    display.fillRect(164, 7, 30, 8, GxEPD_BLACK);
+    display.fillRect(168, 5, 28, 12, GxEPD_WHITE);
+    display.fillRect(165, 9, 3, 4, GxEPD_WHITE);
+    display.fillRect(170, 7, 24, 8, GxEPD_BLACK);
     if(BATTV > 4.10){
-        display.fillRect(166, 9, 26, 4, GxEPD_WHITE);
+        display.fillRect(172, 9, 20, 4, GxEPD_WHITE);
     }
     else if(BATTV > 3.85 && BATTV <= 4.10){
-        display.fillRect(179, 9, 13, 4, GxEPD_WHITE);
+        display.fillRect(182, 9, 10, 4, GxEPD_WHITE);
     }
     else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.fillRect(186, 9, 6, 4, GxEPD_WHITE);
+        display.fillRect(187, 9, 5, 4, GxEPD_WHITE);
     }
     else if(BATTV <= 3.60){
     }
