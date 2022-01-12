@@ -84,20 +84,18 @@ void Skully::drawDate(){
 }
 
 void Skully::drawTemperature(){
-    bool Fh;
-    Fh = false;
     display.setFont(&GorgeousPixel8pt7b);
     display.setCursor(4, 179);
     uint8_t temperatureRTC = RTC.temperature() / 4;
-    if (Fh == true) {
+    if (settings.weatherUnit == "imperial") {
       temperatureRTC = temperatureRTC * (9/5) + 32;
     }
     if(temperatureRTC < 10){
     display.print("0");
     }
     display.print(temperatureRTC);
-    if (Fh == true) {
-      display.print("Fh");
+    if (settings.weatherUnit == "imperial") {
+      display.print("f");
     } else {
       display.print("c");
     }
