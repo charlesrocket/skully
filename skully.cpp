@@ -17,27 +17,27 @@ void Skully::drawWatchFace(){
 }
 
 void Skully::drawTime(){
-    display.setFont(&GorgeousPixel29pt7b);
-    display.setCursor(134, 147);
+    display.setFont(&GorgeousPixel30pt7b);
+    display.setCursor(132, 146);
     String h = String(currentTime.Hour);
     String m = String(currentTime.Minute);
     if(currentTime.Hour < 10){
         display.print("0");
-        display.setCursor(164, 147);
+        display.setCursor(162, 146);
         display.print(String(h.substring(0,1)));
     } else {
         display.print(String(h.substring(0,1)));
-        display.setCursor(164, 147);
+        display.setCursor(162, 146);
         display.print(String(h.substring(1,2)));
     }
-    display.setCursor(134, 193);
+    display.setCursor(132, 193);
     if(currentTime.Minute < 10){
         display.print("0");
-        display.setCursor(164, 193);
+        display.setCursor(162, 193);
         display.print(String(m.substring(0,1)));
     } else {
         display.print(String(m.substring(0,1)));
-        display.setCursor(164, 193);
+        display.setCursor(162, 193);
         display.print(String(m.substring(1,2)));
     }
 }

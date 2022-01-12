@@ -3,7 +3,7 @@
 
 #include <Watchy.h>
 #include "fonts/LcdSolid9pt7b.h"
-#include "fonts/GorgeousPixel29pt7b.h"
+#include "fonts/GorgeousPixel30pt7b.h"
 #include "fonts/GorgeousPixel11pt7b.h"
 #include "fonts/GorgeousPixel9pt7b.h"
 #include "fonts/GorgeousPixel8pt7b.h"
