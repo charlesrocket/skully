@@ -131,6 +131,6 @@ void Skully::drawBattery(){
     else if(BATTV > 3.60 && BATTV <= 3.85){
         display.fillRect(186, 9, 6, 4, GxEPD_WHITE);
     }
-    else if(BATTV < 3.60){
+    else if(BATTV <= 3.60){
     }
 }
