@@ -18,6 +18,7 @@ void Skully::drawWatchFace(){
 
 void Skully::drawTime(){
     display.setFont(&GorgeousPixel30pt7b);
+    display.setTextColor(GxEPD_WHITE);
     int16_t  xh1, yh1;
     uint16_t wh1, hh1;
     int16_t  xh2, yh2;
@@ -72,6 +73,7 @@ void Skully::drawWDay(){
 
 void Skully::drawSteps(){
     display.setFont(&GorgeousPixel9pt7b);
+    display.setTextColor(GxEPD_WHITE);
     int16_t  x1, y1;
     uint16_t w, h;
     if(currentTime.Hour == 23 && currentTime.Minute == 59){
@@ -91,6 +93,7 @@ void Skully::drawSteps(){
 
 void Skully::drawDate(){
     display.setFont(&GorgeousPixel9pt7b);
+    display.setTextColor(GxEPD_WHITE);
     display.setCursor(4, 195);
     String monthStr = String(currentTime.Month);
     String dayStr = String(currentTime.Day);
@@ -102,6 +105,7 @@ void Skully::drawDate(){
 
 void Skully::drawTemperature(){
     display.setFont(&GorgeousPixel8pt7b);
+    display.setTextColor(GxEPD_WHITE);
     display.setCursor(4, 179);
     uint8_t temperatureRTC = RTC.temperature() / 4;
     if (settings.weatherUnit == "imperial") {
