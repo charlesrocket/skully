@@ -36,24 +36,24 @@ void Skully::drawTime(){
     display.getTextBounds(String(h2), 0, 0, &xh2, &yh2, &wh2, &hh2);
     display.getTextBounds(String(m1), 0, 0, &xm1, &ym1, &wm1, &hm1);
     display.getTextBounds(String(m2), 0, 0, &xm2, &ym2, &wm2, &hm2);
-    display.setCursor(144 - wh1/2, 145);
+    display.setCursor(142 - wh1/2, 145);
     if(currentTime.Hour < 10){
         display.print("0");
-        display.setCursor(176 - wh1/2, 145);
+        display.setCursor(174 - wh1/2, 145);
         display.print(String(h1));
     } else {
         display.print(String(h1));
-        display.setCursor(176 - wh2/2, 145);
+        display.setCursor(174 - wh2/2, 145);
         display.print(String(h2));
     }
-    display.setCursor(144 - wm1/2, 193);
+    display.setCursor(142 - wm1/2, 193);
     if(currentTime.Minute < 10){
         display.print("0");
-        display.setCursor(176 - wm1/2, 193);
+        display.setCursor(174 - wm1/2, 193);
         display.print(String(m1));
     } else {
         display.print(String(m1));
-        display.setCursor(176 - wm2/2, 193);
+        display.setCursor(174 - wm2/2, 193);
         display.print(String(m2));
     }
 }
@@ -63,9 +63,10 @@ void Skully::drawWDay(){
     int16_t  x1, y1;
     uint16_t w, h;
     String dayOfWeek = dayShortStr(currentTime.Wday);
+    dayOfWeek.toUpperCase();
     display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
-    display.drawRect(188 - w, 49, w + 8, h + 10, GxEPD_WHITE);
-    display.setCursor(191 - w, 69);
+    display.drawRect(186 - w, 46, w + 8, h + 10, GxEPD_WHITE);
+    display.setCursor(189 - w, 66);
     display.println(String(dayOfWeek));
 }
 
@@ -83,8 +84,8 @@ void Skully::drawSteps(){
     memset(stepStr, '0', 5);
     itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
     display.getTextBounds(String(stepStr), 0, 0, &x1, &y1, &w, &h);
-    display.drawRect(188 - w, 74, w + 8, h + 8, GxEPD_WHITE);
-    display.setCursor(191 - w, 90);
+    display.drawRect(186 - w, 71, w + 8, h + 8, GxEPD_WHITE);
+    display.setCursor(189 - w, 87);
     display.println(stepStr);
 }
 
@@ -118,18 +119,12 @@ void Skully::drawTemperature(){
 }
 
 void Skully::drawBattery(){
-    display.setFont(&LcdSolid9pt7b);
-    display.setCursor(188, 17);
-    display.print(">");
-    display.setCursor(156, 17);
-    float BATTV = getBatteryVoltage();
-    if(BATTV > 4.10){
-        display.print("***");
-    }
-    else if(BATTV > 3.85 && BATTV <= 4.10){
-        display.print(" **");
-    }
-    else if(BATTV > 3.60 && BATTV <= 3.85){
-        display.print("  *");
+    float BATTV = getBatteryVoltage() - 3.60;
+    int batt_w = constrain(((33.33 * BATTV) + 0.9), 0, 20);
+    display.fillRect(168, 5, 28, 12, GxEPD_WHITE);
+    display.fillRect(165, 9, 3, 4, GxEPD_WHITE);
+    display.fillRect(170, 7, 24, 8, GxEPD_BLACK);
+    if (BATTV > 0) {
+        display.fillRect(192 - batt_w, 9, batt_w, 4, GxEPD_WHITE);
     }
 }
