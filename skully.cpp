@@ -65,8 +65,8 @@ void Skully::drawWDay(){
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
-    display.drawRect(186 - w, 47, w + 8, h + 10, GxEPD_WHITE);
-    display.setCursor(189 - w, 67);
+    display.drawRect(186 - w, 46, w + 8, h + 10, GxEPD_WHITE);
+    display.setCursor(189 - w, 66);
     display.println(String(dayOfWeek));
 }
 
@@ -84,8 +84,8 @@ void Skully::drawSteps(){
     memset(stepStr, '0', 5);
     itoa(stepCount, stepStr + max(5-stepStrL, 0), 10);
     display.getTextBounds(String(stepStr), 0, 0, &x1, &y1, &w, &h);
-    display.drawRect(186 - w, 72, w + 8, h + 8, GxEPD_WHITE);
-    display.setCursor(189 - w, 88);
+    display.drawRect(186 - w, 71, w + 8, h + 8, GxEPD_WHITE);
+    display.setCursor(189 - w, 87);
     display.println(stepStr);
 }
 
