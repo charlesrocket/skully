@@ -122,13 +122,16 @@ void Skully::drawBattery(){
     display.fillRect(168, 5, 28, 12, GxEPD_WHITE);
     display.fillRect(165, 9, 3, 4, GxEPD_WHITE);
     display.fillRect(170, 7, 24, 8, GxEPD_BLACK);
-    if(BATTV > 4.10){
+    if(BATTV > 4.20){
         display.fillRect(172, 9, 20, 4, GxEPD_WHITE);
     }
-    else if(BATTV > 3.85 && BATTV <= 4.10){
+    else if(BATTV > 3.95 && BATTV <= 4.20){
+        display.fillRect(177, 9, 15, 4, GxEPD_WHITE);
+    }
+    else if(BATTV > 3.80 && BATTV <= 3.95){
         display.fillRect(182, 9, 10, 4, GxEPD_WHITE);
     }
-    else if(BATTV > 3.60 && BATTV <= 3.85){
+    else if(BATTV > 3.60 && BATTV <= 3.80){
         display.fillRect(187, 9, 5, 4, GxEPD_WHITE);
     }
     else if(BATTV <= 3.60){
