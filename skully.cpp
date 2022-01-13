@@ -61,12 +61,13 @@ void Skully::drawTime(){
 
 void Skully::drawWDay(){
     display.setFont(&GorgeousPixel11pt7b);
+    display.setTextColor(GxEPD_BLACK);
     int16_t  x1, y1;
     uint16_t w, h;
     String dayOfWeek = dayShortStr(currentTime.Wday);
     dayOfWeek.toUpperCase();
     display.getTextBounds(String(dayOfWeek), 0, 0, &x1, &y1, &w, &h);
-    display.drawRect(186 - w, 46, w + 8, h + 10, GxEPD_WHITE);
+    display.fillRect(186 - w, 46, w + 8, h + 10, GxEPD_WHITE);
     display.setCursor(189 - w, 66);
     display.println(String(dayOfWeek));
 }
