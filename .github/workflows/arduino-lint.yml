@@ -1,4 +1,4 @@
-name: Arduino lint
+name: Lint
 
 on:
   pull_request:
