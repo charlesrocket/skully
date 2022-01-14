@@ -37,7 +37,7 @@ void Skully::drawTime(){
     display.getTextBounds(String(m1), 0, 0, &xm1, &ym1, &wm1, &hm1);
     display.getTextBounds(String(m2), 0, 0, &xm2, &ym2, &wm2, &hm2);
     display.setCursor(142 - wh1/2, 144);
-    if(currentTime.Hour < 10){
+    if (currentTime.Hour < 10) {
         display.print("0");
         display.setCursor(174 - wh1/2, 144);
         display.print(String(h1));
@@ -47,7 +47,7 @@ void Skully::drawTime(){
         display.print(String(h2));
     }
     display.setCursor(142 - wm1/2, 192);
-    if(currentTime.Minute < 10){
+    if (currentTime.Minute < 10) {
         display.print("0");
         display.setCursor(174 - wm1/2, 192);
         display.print(String(m1));
@@ -76,7 +76,7 @@ void Skully::drawSteps(){
     display.setTextColor(GxEPD_WHITE);
     int16_t  x1, y1;
     uint16_t w, h;
-    if(currentTime.Hour == 23 && currentTime.Minute == 59){
+    if (currentTime.Hour == 23 && currentTime.Minute == 59) {
         sensor.resetStepCounter();
     }
     uint32_t stepCount = sensor.getCounter();
@@ -111,7 +111,7 @@ void Skully::drawTemperature(){
     if (settings.weatherUnit == "imperial") {
       temperatureRTC = temperatureRTC * (9/5) + 32;
     }
-    if(temperatureRTC < 10){
+    if (temperatureRTC < 10) {
     display.print("0");
     }
     display.print(temperatureRTC);
