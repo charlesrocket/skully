@@ -13,6 +13,8 @@ on:
       - '**.cpp'
       - '**.h'
       - '**.yml'
+  schedule:
+    - cron: "0 11 13 */2 *"
 
 env:
   ARTIFACT_FOLDER: artifact
