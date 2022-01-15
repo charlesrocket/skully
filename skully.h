@@ -8,7 +8,7 @@
 #include "fonts/GorgeousPixel8pt7b.h"
 #include "pirate.h"
 
-class Skully : public Watchy{
+class Skully : public Watchy {
     using Watchy::Watchy;
     public:
       void drawWatchFace();

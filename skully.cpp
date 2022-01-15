@@ -1,6 +1,6 @@
 #include "skully.h"
 
-void Skully::drawWatchFace(){
+void Skully::drawWatchFace() {
     display.fillScreen(GxEPD_BLACK);
     display.drawBitmap(0, 0, pirate, 200, 200, GxEPD_WHITE);
     drawTime();
@@ -9,13 +9,13 @@ void Skully::drawWatchFace(){
     drawSteps();
   //drawTemperature();
     drawBattery();
-    for(uint8_t i=0; i<3; i++){
+    for (uint8_t i=0; i<3; i++) {
         // Reduce ghosting
         display.display(true);
     }
 }
 
-void Skully::drawTime(){
+void Skully::drawTime() {
     display.setFont(&GorgeousPixel30pt7b);
     display.setTextColor(GxEPD_WHITE);
     int16_t  xh1, yh1;
@@ -58,7 +58,7 @@ void Skully::drawTime(){
     }
 }
 
-void Skully::drawWDay(){
+void Skully::drawWDay() {
     display.setFont(&GorgeousPixel11pt7b);
     display.setTextColor(GxEPD_BLACK);
     int16_t  x1, y1;
@@ -71,7 +71,7 @@ void Skully::drawWDay(){
     display.println(String(dayOfWeek));
 }
 
-void Skully::drawSteps(){
+void Skully::drawSteps() {
     display.setFont(&GorgeousPixel9pt7b);
     display.setTextColor(GxEPD_WHITE);
     int16_t  x1, y1;
@@ -91,7 +91,7 @@ void Skully::drawSteps(){
     display.println(stepStr);
 }
 
-void Skully::drawDate(){
+void Skully::drawDate() {
     display.setFont(&GorgeousPixel9pt7b);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(4, 195);
@@ -103,7 +103,7 @@ void Skully::drawDate(){
     display.print(String(dateStr));
 }
 
-void Skully::drawTemperature(){
+void Skully::drawTemperature() {
     display.setFont(&GorgeousPixel8pt7b);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(4, 179);
@@ -122,7 +122,7 @@ void Skully::drawTemperature(){
     }
 }
 
-void Skully::drawBattery(){
+void Skully::drawBattery() {
     float BATTV = getBatteryVoltage() - 3.60;
     int batt_w = constrain(((33.33 * BATTV) + 0.9), 0, 20);
     display.fillRect(168, 5, 28, 12, GxEPD_WHITE);
