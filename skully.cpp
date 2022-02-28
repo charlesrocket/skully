@@ -7,8 +7,8 @@ void Skully::drawWatchFace() {
     drawWDay();
     drawDate();
     drawSteps();
-  //drawTemperature();
     drawBattery();
+  //drawTemperature();
     for (uint8_t i=0; i<3; i++) {
         // Reduce ghosting
         display.display(true);
