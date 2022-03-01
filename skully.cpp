@@ -71,6 +71,18 @@ void Skully::drawWDay() {
     display.println(String(dayOfWeek));
 }
 
+void Skully::drawDate() {
+    display.setFont(&GorgeousPixel9pt7b);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(4, 195);
+    String monthStr = String(currentTime.Month);
+    String dayStr = String(currentTime.Day);
+    monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
+    dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
+    String dateStr = dayStr + "." + monthStr;
+    display.print(String(dateStr));
+}
+
 void Skully::drawSteps() {
     display.setFont(&GorgeousPixel9pt7b);
     display.setTextColor(GxEPD_WHITE);
@@ -91,16 +103,15 @@ void Skully::drawSteps() {
     display.println(stepStr);
 }
 
-void Skully::drawDate() {
-    display.setFont(&GorgeousPixel9pt7b);
-    display.setTextColor(GxEPD_WHITE);
-    display.setCursor(4, 195);
-    String monthStr = String(currentTime.Month);
-    String dayStr = String(currentTime.Day);
-    monthStr = currentTime.Month < 10 ? "0" + monthStr : monthStr;
-    dayStr = currentTime.Day < 10 ? "0" + dayStr : dayStr;
-    String dateStr = dayStr + "." + monthStr;
-    display.print(String(dateStr));
+void Skully::drawBattery() {
+    float BATTV = getBatteryVoltage() - 3.60;
+    int batt_w = constrain(((33.33 * BATTV) + 0.9), 0, 20);
+    display.fillRect(166, 5, 28, 12, GxEPD_WHITE);
+    display.fillRect(163, 9, 3, 4, GxEPD_WHITE);
+    display.fillRect(168, 7, 24, 8, GxEPD_BLACK);
+    if (BATTV > 0) {
+        display.fillRect(190 - batt_w, 9, batt_w, 4, GxEPD_WHITE);
+    }
 }
 
 void Skully::drawTemperature() {
@@ -119,16 +130,5 @@ void Skully::drawTemperature() {
       display.print("f");
     } else {
       display.print("c");
-    }
-}
-
-void Skully::drawBattery() {
-    float BATTV = getBatteryVoltage() - 3.60;
-    int batt_w = constrain(((33.33 * BATTV) + 0.9), 0, 20);
-    display.fillRect(166, 5, 28, 12, GxEPD_WHITE);
-    display.fillRect(163, 9, 3, 4, GxEPD_WHITE);
-    display.fillRect(168, 7, 24, 8, GxEPD_BLACK);
-    if (BATTV > 0) {
-        display.fillRect(190 - batt_w, 9, batt_w, 4, GxEPD_WHITE);
     }
 }
