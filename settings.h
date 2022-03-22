@@ -10,7 +10,7 @@
 #define WEATHER_UPDATE_INTERVAL 30 //must be greater than 5, measured in minutes
 //NTP Settings
 #define NTP_SERVER "pool.ntp.org"
-#define GMT_OFFSET_SEC 3600 * -8 //Los Angeles is UTC -8
+#define GMT_OFFSET_SEC 3600 * -7 //Los Angeles is UTC -7
 #define DST_OFFSET_SEC 3600
 
 watchySettings settings{
