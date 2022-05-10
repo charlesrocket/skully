@@ -120,15 +120,15 @@ void Skully::drawTemperature() {
     display.setCursor(4, 179);
     uint8_t temperatureRTC = RTC.temperature() / 4;
     if (settings.weatherUnit == "imperial") {
-      temperatureRTC = temperatureRTC * (9/5) + 32;
+        temperatureRTC = temperatureRTC * (9/5) + 32;
     }
     if (temperatureRTC < 10) {
-    display.print("0");
+        display.print("0");
     }
     display.print(temperatureRTC);
     if (settings.weatherUnit == "imperial") {
-      display.print("f");
+        display.print("f");
     } else {
-      display.print("c");
+        display.print("c");
     }
 }

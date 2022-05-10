@@ -4,7 +4,7 @@
 Skully watchy(settings);
 
 void setup() {
-  watchy.init();
+    watchy.init();
 }
 
 void loop() {}

@@ -11,13 +11,13 @@
 class Skully : public Watchy {
     using Watchy::Watchy;
     public:
-      void drawWatchFace();
-      void drawTime();
-      void drawWDay();
-      void drawDate();
-      void drawSteps();
-      void drawTemperature();
-      void drawBattery();
+        void drawWatchFace();
+        void drawTime();
+        void drawWDay();
+        void drawDate();
+        void drawSteps();
+        void drawTemperature();
+        void drawBattery();
 };
 
 #endif
