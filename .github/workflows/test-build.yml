@@ -37,6 +37,8 @@ jobs:
           libraries: |
             - name: Watchy
               version: latest
+            - name: GxEPD2
+              version: 1.4.3
           cli-compile-flags: |
             - --export-binaries
             - --build-property
