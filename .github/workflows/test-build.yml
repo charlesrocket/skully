@@ -38,7 +38,7 @@ jobs:
             - name: Watchy
               version: latest
             - name: GxEPD2
-              version: 1.4.3
+              version: latest
           cli-compile-flags: |
             - --export-binaries
             - --build-property
