@@ -46,16 +46,3 @@ jobs:
             - --build-property
             - upload.maximum_size=1966080
           enable-deltas-report: true
-      - name: Prepare the artifact
-        run: mkdir "${FOLDER}" && mv "build/esp32.esp32.esp32/${SKETCH}.ino.bin" "${FOLDER}/${SKETCH}.bin"
-        env:
-          FOLDER: ${{ env.ARTIFACT_FOLDER }}
-          SKETCH: ${{ github.event.repository.name }}
-      - name: Get the short Git SHA
-        id: slug
-        run: echo "::set-output name=sha7::$(echo "${GITHUB_SHA}" | cut -c1-7)"
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ github.event.repository.name }}-${{ steps.slug.outputs.sha7 }}
-          path: ${{ env.ARTIFACT_FOLDER }}
