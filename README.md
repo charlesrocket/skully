@@ -5,3 +5,7 @@
 ![watchy](doc/screenshot.gif)
 
 Skull face for [Watchy](https://github.com/sqfmi/Watchy)
+
+## Contributing
+
+Patches are accepted via [Codeberg](https://codeberg.org/charlesrocket/skully/) or e-mail.
