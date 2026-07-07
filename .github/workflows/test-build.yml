@@ -3,16 +3,16 @@ name: Build
 on:
   pull_request:
     paths:
-      - '**.ino'
-      - '**.cpp'
-      - '**.h'
-      - '**.yml'
+      - "**.ino"
+      - "**.cpp"
+      - "**.h"
+      - "**.yml"
   push:
     paths:
-      - '**.ino'
-      - '**.cpp'
-      - '**.h'
-      - '**.yml'
+      - "**.ino"
+      - "**.cpp"
+      - "**.h"
+      - "**.yml"
 
 env:
   ARTIFACT_FOLDER: artifact
@@ -22,7 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
       - name: Compile sketches
         uses: arduino/compile-sketches@v1
         with:
